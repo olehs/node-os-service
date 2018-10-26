@@ -223,7 +223,8 @@ function add (name, options, cb) {
 				serviceArgs.push (options.programArgs[i]);
 	
 		for (var i = 0; i < serviceArgs.length; i++)
-			serviceArgs[i] = "\"" + serviceArgs[i] + "\"";
+			if(serviceArgs[i].indexOf(" ") >= 0)
+				serviceArgs[i] = "\"" + serviceArgs[i] + "\"";
 	
 		var servicePath = serviceArgs.join (" ");
 
